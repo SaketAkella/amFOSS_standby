@@ -1,8 +1,8 @@
 # amfoss-tasks-
 # Saket Akella
 
-**Tasks List**|**Description**
---------------|---------------
+**Tasks List**
+--------------
 [ch-3](https://github.com/SaketAkella/amFOSS_standby/tree/main/ch-3)
 [ch-4](https://github.com/SaketAkella/amFOSS_standby/tree/main/ch-4)
 [ch-5](https://github.com/SaketAkella/amFOSS_standby/tree/main/ch-5)
