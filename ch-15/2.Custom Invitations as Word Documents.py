@@ -1,51 +1,24 @@
-def inv():
-     from docx import Documents
-     from docx.enum.style import WD_STYLE_TYPE
-     from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
-     from docx.shared import Pt
+import docx
 
-     Intro= "It would be a pleasure to have the company of"
-     Address="at 11010 Memory Lane on the Evening of"
-     Date="April 1st"
-     Time="at 7 o'clock"
-
-     with open('./guests.txt') as file:
-         guestList= file.read().splitlines()
-
-     document = Documents()
-     styles = document.styles
-
-     style = styles.add_style("start", WD_STYLE_TYPE.PARAGRAPH)
-     font = style.font
-     font.name = "MathJax_Caligraphic"  
-     font.size = Pt(12)
-     font.all_caps = True  
-     font.bold = True
-     style.paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-
-     style = styles.add_style("date", WD_STYLE_TYPE.PARAGRAPH)
-     font = style.font
-     font.name = "Liberation Sans"
-     font.size = Pt(12)
-     font.bold= False
-     style.paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-
-     style = styles.add_style("name", WD_STYLE_TYPE.PARAGRAPH)
-     font = style.font
-     font.name = "Liberation Sans"  
-     font.size = Pt(16)
-     font.bold = True
-     style.paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-
-
-
-     for guests in guestList.txt:
-        document.add_paragraph(Intro, style="start")
-        document.add_paragraph(guests, style="name")
-        document.add_paragraph(Address, style="start")
-        document.add_paragraph(Date, style="date")
-        document.add_paragraph(Time, style="start")
-
-     document.save('Invitations.docx')
-if __name__=='__inv__':
-    inv()
+doc=docx.Document()
+file=open('guests.txt')
+n=[]
+n=file.readlines()
+for i in n:
+    a=doc.add_paragraph("")
+    a.alignment=1
+    a.add_run('It would be the pleasure to have the company of').italic=True
+    x=doc.add_paragraph("")
+    x.alignment=1
+    x.add_run(i[:-1]).bold=True
+    b=doc.add_paragraph("")
+    b.alignment=1
+    b.add_run('at 11011 Memory Lane on the Evening of').italic=True
+    c=doc.add_paragraph("")
+    c.alignment=1
+    c.add_run('April 1st').bold=True
+    d=doc.add_paragraph("")
+    d.alignment=1
+    d.add_run('at 7 o\' clock').italic=True
+    doc.add_page_break()
+doc.save('custominv.docx')
